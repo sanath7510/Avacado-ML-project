@@ -1,0 +1,100 @@
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    min-height:100vh;
+    background: url("../accounts/bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.auth-wrapper{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.credentials-panel{
+    background: rgba(255,255,255,0.92);
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    width:380px;
+    text-align:center;
+}
+
+.credentials-panel h2{
+    margin-bottom:20px;
+}
+
+.credentials-panel input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:10px;
+}
+
+.credentials-panel button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+
+/* Page Slide Animation */
+.credentials-panel {
+    animation: slideIn 0.8s ease;
+}
+
+/* Login page comes from left */
+.signin {
+    animation: slideLeft 0.8s ease;
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(-80px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Register page comes from right */
+.signup {
+    animation: slideRight 0.8s ease;
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(80px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.switch-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: green;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.switch-btn:hover {
+    background: darkgreen;
+}

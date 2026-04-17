@@ -1,0 +1,111 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Avocado Ripeness Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+
+            /* Background Image */
+           background-image: url("{% static 'images/OIP.jpg.' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            /* Center Content */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            width: 450px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            font-size: 26px;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 95%;
+            padding: 12px;
+            background: green;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>🥑 Avocado Ripeness Prediction</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <input type="text" name="firmness" placeholder="Firmness" required>
+            <input type="text" name="hue" placeholder="Hue" required>
+            <input type="text" name="saturation" placeholder="Saturation" required>
+            <input type="text" name="brightness" placeholder="Brightness" required>
+
+            <select name="color" required>
+                <option value="">-- Select Color --</option>
+                <option value="black">Black</option>
+                <option value="green">Green</option>
+                <option value="yellow">Yellow</option>
+            </select>
+
+            <input type="text" name="sound_db" placeholder="Sound dB" required>
+            <input type="text" name="weight" placeholder="Weight" required>
+            <input type="text" name="size" placeholder="Size" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                Prediction: {{ result }}
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

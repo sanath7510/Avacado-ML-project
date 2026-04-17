@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+<div class="auth-wrapper">
+  <div class="credentials-panel signup">
+    <h2>Register</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="field-wrapper">
+        <input type="text" name="username" required>
+        <label>Username</label>
+      </div>
+      <div class="field-wrapper">
+        <input type="email" name="email" required>
+        <label>Email</label>
+      </div>
+      <div class="field-wrapper">
+        <input type="password" name="password" required>
+        <label>Password</label>
+      </div>
+      <button class="submit-button" type="submit">Register</button>
+      <p class="switch-link">Already user? <a href="{% url 'login' %}">Login</a></p>
+    </form>
+<p>Already have an account?</p>
+<a href="{% url 'login' %}" class="switch-btn">Sign In</a>
+
+  </div>
+</div>
+</body>
+</html>
